@@ -1,5 +1,26 @@
 import axios from 'axios';
 
+export async function check_token(token){ 
+    try{
+      let url = "https://api.spotify.com/v1/me"
+      const config = {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      };
+  
+      const response = await axios.get(url, config);
+      console.log(response)
+      if(response.status == 200) return true;
+      return false;
+    }catch(err){
+      return false
+    }
+
+    
+}
+
+
 export const getAlbum = async (albumId, accessToken) => {
   const url = `https://api.spotify.com/v1/albums/${albumId}`;
 
@@ -20,7 +41,7 @@ export const getAlbum = async (albumId, accessToken) => {
 
 export const getProfile = async(accessToken)=>{
     console.log(accessToken)
-    const url = "https://api.spotify.com/v1/me";
+    const url = 'https://api.spotify.com/v1/recommendations/available-genre-seeds'
     
     const config = {
         headers: {

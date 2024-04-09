@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import { generateRandomString, sha256, base64encode, getCode } from '../utils/login';
 
 
@@ -12,6 +12,10 @@ export default function Home() {
         setCodeChallenge(codeChallenge);
         getCode(codeVerifier,codeChallenge)
     };
+
+    useEffect(()=>{
+      if(localStorage.getItem("access_token") != "") handleClick();
+    },[])
     
       return <button onClick={handleClick}>Login</button>;
     }

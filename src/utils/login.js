@@ -21,7 +21,8 @@ export const getCode = (codeVerifier,codeChallenge) => {
   const clientId = '1cbfd428352d473fa5f1e965948bab92';
   const redirectUri = 'http://localhost:5173/token';
 
-  const scope = 'user-read-private user-read-email';
+  const scope = 'user-read-private user-read-email user-read-recently-played user-top-read';
+  
   const authUrl = new URL("https://accounts.spotify.com/authorize");
 
   // generated in the previous step
@@ -47,10 +48,12 @@ export const getToken = async () => {
     let code = urlParams.get('code');
     const clientId = '1cbfd428352d473fa5f1e965948bab92';
     const redirectUri = 'http://localhost:5173/token';
+    const scopes = 'user-read-private playlist-read-private user-read-recently-played user-top-read';
 
     if (!code) {
       throw new Error('No se encontró un código de autorización en la URL');
     }
+
 
     const payload = {
       method: 'POST',
@@ -63,13 +66,14 @@ export const getToken = async () => {
         code,
         redirect_uri: redirectUri,
         code_verifier: codeVerifier,
+        scope: scopes
       }),
     };
     
     const response = await fetch('https://accounts.spotify.com/api/token', payload);
-
+    console.log(response)
     if (!response.ok) {
-      throw new Error(`Error al obtener el token: ${response.status} - ${response.statusText}`);
+      throw new Error(`Error al obtener el token: ${response.status} - ${response.statusText} ${response.body}`);
     }
 
     const responseBody = await response.json();
@@ -80,6 +84,7 @@ export const getToken = async () => {
     }
 
     localStorage.setItem('access_token', responseBody.access_token);
+    localStorage.setItem('refresh_token', responseBody.refresh_token);
     return responseBody.access_token;
 
   } catch (error) {
@@ -87,3 +92,28 @@ export const getToken = async () => {
     throw error; // Re-lanza el error para que el componente que llama a getToken pueda manejarlo
   }
 };
+
+export const getRefreshToken = async () => {
+
+  // refresh token that has been previously stored
+  const refreshToken = localStorage.getItem('refresh_token');
+  const url = "https://accounts.spotify.com/api/token";
+
+   const payload = {
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/x-www-form-urlencoded'
+     },
+     body: new URLSearchParams({
+       grant_type: 'refresh_token',
+       refresh_token: refreshToken,
+       client_id: '1cbfd428352d473fa5f1e965948bab92'
+     }),
+   }
+   const body = await fetch(url, payload);
+   const response = await body.json();
+   console.log(response)
+   localStorage.setItem('access_token', response.accessToken);
+   localStorage.setItem('refresh_token', response.refreshToken);
+   return response.accessToken;
+ }

@@ -2,8 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Home from './components/Home'
-import Token from './components/token'
+import Home from './views/Home'
+import Token from './views/token'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {

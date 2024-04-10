@@ -1,5 +1,7 @@
 import { getAlbum,getProfile,check_token } from "../utils/request";
 import { getToken, getRefreshToken } from "../utils/login";
+import tracksFunctions from "./Tracks/tracksFunctions";
+import artistsFunction from "./artists/artistsFunctions";
 
 export const fetchData = async () => {
     try {
@@ -23,6 +25,24 @@ export const fetchData = async () => {
       const profile = await getProfile(newToken);
       console.log('Perfil:', profile);
 
+    } catch (error) {
+      console.error('Error al obtener el token en el componente Token:', error);
+    }
+  };
+
+
+  export const getTopGenres = async () => {
+    try {
+
+      let newToken = localStorage.getItem("access_token");
+
+
+      const artistsId = await artistsFunction.getTopArtistsIds(newToken,50)
+
+
+      const topGenres = await artistsFunction.getTopGenres(newToken,artistsId)
+      console.log(topGenres)
+      return topGenres;
     } catch (error) {
       console.error('Error al obtener el token en el componente Token:', error);
     }

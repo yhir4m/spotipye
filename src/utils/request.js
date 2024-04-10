@@ -41,7 +41,7 @@ export const getAlbum = async (albumId, accessToken) => {
 
 export const getProfile = async(accessToken)=>{
     console.log(accessToken)
-    const url = 'https://api.spotify.com/v1/recommendations/available-genre-seeds'
+    const url = 'https://api.spotify.com/v1/me'
     
     const config = {
         headers: {

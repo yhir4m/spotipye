@@ -1,0 +1,65 @@
+@import "../../assets/sass/colors.scss";
+@import "../../assets/sass/animations.scss";
+
+.artists{
+    background: rgb(0,0,0);
+    background: linear-gradient(315deg, rgba(0,0,0,1) 2%, rgba(18,18,18,1) 31%, rgba(67,67,67,1) 100%);
+
+    height: 100%;
+    width: 100%;
+
+            .card-animation{
+            animation: display_artist-image 0.8s ease;
+        }
+
+        .card {
+            
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding:  5%;
+            height: 100%;
+            img {
+                width: auto;
+                height: 15rem;
+                overflow: hidden; 
+                object-fit: contain;   
+                box-shadow: 15px 13px 5px 4px rgba(255, 255, 255, 0.5);
+            }
+            span{
+                color: #fff;
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 2rem;
+            }
+          }
+          
+          
+          
+
+    .top_artists-container{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        
+        align-items: center;
+        justify-items: center;
+
+        .artists-items{
+            display: grid;
+            grid-template-columns: repeat(2,1fr); // 2 columnas
+            .top_artists{
+                padding: 2% 0;
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+        
+    
+
+        
+    }
+}

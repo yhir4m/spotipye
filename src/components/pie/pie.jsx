@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
-import { getTopGenres } from '../utils/callToken';
+import { getTopGenres } from '../../utils/callToken';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import "./pie.scss";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -48,14 +49,16 @@ export default function ChartPie(){
     const fetchData = async () => {
       const topGenres = await getTopGenres();
       const genresString = topGenres.map(item => item[0]);
-      const genreVal = topGenres.map(item => item[1]);
       
+      const genreVal = topGenres.map(item => item[1]);
+      const totalGenreVal =genreVal.reduce((acc,current)=> acc+current)
+      const genrePercent = genreVal.map(item => Math.round(item *100/ totalGenreVal));
       let pieData = {
         labels: genresString,
         datasets: [
           {
             label: '# of Votes',
-            data: genreVal,
+            data: genrePercent,
             backgroundColor: data.datasets[0].backgroundColor,
             borderColor: data.datasets[0].borderColor,
             borderWidth: data.datasets[0].borderWidth,
@@ -74,7 +77,7 @@ export default function ChartPie(){
   const options = {
     plugins: {
       legend: {
-        position: 'top',
+        position: 'none',
         labels: {
           boxWidth: 20, // Ancho de la caja de la leyenda
           font: {

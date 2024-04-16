@@ -10,7 +10,6 @@ export async function check_token(token){
       };
   
       const response = await axios.get(url, config);
-      console.log(response)
       if(response.status == 200) return true;
       return false;
     }catch(err){
@@ -40,7 +39,6 @@ export const getAlbum = async (albumId, accessToken) => {
 };
 
 export const getProfile = async(accessToken)=>{
-    console.log(accessToken)
     const url = 'https://api.spotify.com/v1/me'
     
     const config = {
@@ -51,7 +49,6 @@ export const getProfile = async(accessToken)=>{
     
     try{
         const res = await axios.get(url,config);
-        console.log(res.data);
         return res.data;
     } catch(err){
         console.log("error al solicitar el perfil", err);

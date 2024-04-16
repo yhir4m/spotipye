@@ -1,0 +1,31 @@
+// Display ---------------------------------------------------------------------
+@mixin flexbox($direction, $align-items, $justify-content, $gap) {
+    display: flex;
+    flex-direction: $direction, null;
+    align-items: $align-items, null;
+    justify-content: $justify-content, null;
+    gap: $gap, null;
+}
+
+@mixin center-all {
+    display: grid;
+    place-content: center;
+}
+
+
+//text 
+
+@mixin neonEffect($color){
+    text-shadow:
+    0 0 7px $color,
+    0 0 10px $color,
+    0 0 21px $color,
+    0 0 42px $color,
+    0 0 82px $color,
+    0 0 92px $color,
+    0 0 102px $color,
+    0 0 151px $color;        
+}
+
+//background
+

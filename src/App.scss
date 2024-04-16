@@ -1,0 +1,251 @@
+@import "./assets/sass/fonts.scss";
+/* normalize.css v8.0.1 */
+/* Esta es una versión mínima de Normalize.css para empezar. Puedes agregar más estilos según sea necesario. */
+
+/* Elementos HTML */
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Estilos básicos */
+body {
+  font-family: "Oxygen-300";
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Tipografía */
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Listas */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Enlaces */
+a {
+  background-color: transparent;
+}
+
+/* Botones */
+button,
+input {
+  overflow: visible;
+}
+
+/* Botón de cierre para formularios */
+button,
+select {
+  text-transform: none;
+}
+
+/* Contenido en lista */
+[hidden] {
+  display: none;
+}
+
+/* Detalles de bloque y flotantes */
+blockquote,
+dd,
+div,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+/* Elementos de formulario */
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+/* Detalles del tamaño del texto */
+legend {
+  display: block;
+  max-width: 100%;
+}
+
+/* Detalles de contenido en línea */
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/* Elementos de tabla */
+code,
+kbd,
+samp,
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Código incorporado */
+pre {
+  display: block;
+  margin: 1em 0;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+}
+
+/* Detalles de la lista ordenada */
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Detalles de la lista anidada */
+details,
+menu {
+  display: block;
+}
+
+/* Cambios en los bordes */
+summary {
+  display: list-item;
+}
+
+/* Estilo de tabla */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Control de tamaño de las imágenes */
+img {
+  border-style: none;
+}
+
+/* Control de tamaño de los elementos de audio y video */
+audio,
+video {
+  display: inline-block;
+}
+
+/* Controles de lectura rápida */
+[hidden],
+template {
+  display: none;
+}
+
+/* Estructura de la página */
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+/* Elementos de formulario */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+  margin: 0;
+}
+
+/* Deshabilitar la agrupación de color en los formularios */
+optgroup {
+  font-weight: bold;
+}
+
+/* Estilo de botón para formularios */
+button,
+input {
+  overflow: visible;
+  text-transform: none;
+}
+
+/* Arreglar el desplazamiento de los elementos del formulario */
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Estilo de elemento seleccionado en los formularios */
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/* Controles de formulario de estilo tipo enlace */
+[type='search'] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+/* Estilo de elementos desconocidos */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+/* Etiqueta visible del formulario */
+output {
+  display: inline-block;
+}
+
+/* Eliminar bordes de imagen */
+img {
+  border-style: none;
+}
+
+/* Controles de formulario de estilo tipo enlace */
+::-webkit-search-decoration,
+::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+/* Iniciar los bordes de los formularios */
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+/* Estilo de lista de enlaces */
+::-webkit-link {
+  text-decoration: underline;
+}
+
+/* Opciones de elementos de formulario */
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+/* Estilo de lista de enlaces */
+::-webkit-link {
+  text-decoration: underline;
+}
+
+/* Mostrar texto que no se puede seleccionar */
+::-moz-selection {
+  background-color: #b3d4fc;
+  color: #000;
+}
+
+/* Elementos seleccionados */
+::selection {
+  background-color: #b3d4fc;
+  color: #000;
+}

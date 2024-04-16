@@ -1,25 +1,26 @@
 import axios from "axios";
 const artistsFunction = {
-
-    
-    getTopArtists : async function(accessToken,limit = 20){
-        console.log(accessToken)
-        const url = `https://api.spotify.com/v1/me/top/artists?limit=${limit}`
-        
-        const config = {
-            headers: {
-            'Authorization': `Bearer ${accessToken}`
-            }
-        };
-        
-        try{
-            const res = await axios.get(url,config);
-            return res.data;
-        } catch(err){
-            console.log("error al solicitar el perfil", err);
-            throw err;
-        }
+    getTopArtists: async function(accessToken, limit = 20) {
+      console.log(accessToken);
+      const url = `https://api.spotify.com/v1/me/top/artists?limit=${limit}`;
+  
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+  
+      try {
+        const res = await axios.get(url, config);
+        return res.data;
+      } catch (err) {
+        console.log("error al solicitar el perfil", err);
+        throw err;
+      }
     },
+  
+
+  
 
     getTopArtistsIds : async function(accessToken,limit = 20){
         console.log(accessToken)
@@ -60,6 +61,7 @@ const artistsFunction = {
 
         try{
             const res = await axios.get(url,config)
+            console.log(res.data.artists)
 
             let genres = []
 

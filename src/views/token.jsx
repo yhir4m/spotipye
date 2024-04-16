@@ -1,26 +1,34 @@
-import { useEffect,useState } from "react";
-import React from "react";
-import ChartPie from "../components/pie";
-import { fetchData, getTopGenres } from "../utils/callToken";
+import React, { useEffect, useState, useContext, createContext } from "react";
+import ChartPie from "../components/pie/pie";
+import { fetchData } from "../utils/callToken";
 import axios from "axios";
 
-export default function Token(){
- 
-    useEffect(() => {
-        fetchData();
-        console.log(getTopGenres());
+import ArtistsComponent from "../components/artists/artists";
+export const ThemeContext = createContext(null);
 
-      }, []);
-      
+export default function Token() {
+  // State para guardar el access_token
+  useEffect(() => {
+    const fetchToken = async () => {
+      try {
+        // Llamar a tu función fetchData() para obtener el access_token
+        const token = await fetchData();
+        console.log(token)
+      } catch (error) {
+        console.error("Error al obtener el token:", error);
+      }
+    };
+    fetchToken();
+  }, []);
 
-    
-
-
-    return( 
-        <>
+  return (
+    <>
+      <ThemeContext.Provider>
+        {/* Renderizar tu componente ChartPie */}
         <h1></h1>
-        <ChartPie></ChartPie>
-        </>
-        
-    )
+        <ArtistsComponent></ArtistsComponent>
+        {/* <ChartPie /> */}
+      </ThemeContext.Provider>
+    </>
+  );
 }

@@ -4,9 +4,13 @@ import { fetchData } from "../utils/callToken";
 import axios from "axios";
 
 import ArtistsComponent from "../components/artists/artists";
-export const ThemeContext = createContext(null);
+import SimilarArtists from "../components/similar-artists/similarArtists";
+
+export const ArtistContext = createContext(undefined);
+
 
 export default function Token() {
+  const [actualArtist, setActualArtist] = useState("aaa")
   // State para guardar el access_token
   useEffect(() => {
     const fetchToken = async () => {
@@ -23,12 +27,12 @@ export default function Token() {
 
   return (
     <>
-      <ThemeContext.Provider>
-        {/* Renderizar tu componente ChartPie */}
-        <h1></h1>
+      <ArtistContext.Provider value ={{actualArtist,setActualArtist} }>
+        <SimilarArtists></SimilarArtists>
+
         <ArtistsComponent></ArtistsComponent>
         {/* <ChartPie /> */}
-      </ThemeContext.Provider>
+      </ArtistContext.Provider>
     </>
   );
 }

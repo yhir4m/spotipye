@@ -3,16 +3,14 @@
 .top_artists{
     width: 80%;
     height: 100%;
-
     .top_artists-element{
         display: grid;
         grid-template-columns: repeat(2, 1fr); 
         align-items: center;
         justify-content: stretch;
         height: 100%;
-        border: #9a9a9a solid;
-        
         background-color: #000000;
+        border: #433c3c solid 2px;
         color: #ffffff;
         max-width: 100%;
         .tier-container{
@@ -22,7 +20,6 @@
             width: 100%;
             justify-content: space-around;
             align-items: center;
-            
             img{
                 display: flex;
                 align-items: start;
@@ -42,12 +39,21 @@
         $texto-base: 16px;
         $tamaño-por-caracter: 0.5px;
         .top_artist-name{ 
+            cursor: pointer;
             width: 50%;
             font-size: 14.4px;
             display: flex;
             flex: 1;
-            
-            @include neonEffect(#9a9a9a)
+            transition: 0.4s all ease;
+
+            @include neonEffect(#9a9a9a);
+
+            &:hover{
+                color: #ababab;
+            }
+            &:active{
+                color: rgb(255, 0, 0);
+            }
         }
 
         

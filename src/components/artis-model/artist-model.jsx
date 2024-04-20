@@ -18,6 +18,7 @@ export default function ArtistModel(artist){
             </div>
               <span className="top_artist-name" id={"top_artist-name" + (artist.index +1)} onLoad={defineFontSize("top_artist-name"+(artist.index +1), artist.artist.name ) }>{artist.artist.name} </span>
               
+              
           </div>
         </article>
     )

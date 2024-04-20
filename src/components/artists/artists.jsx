@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ThemeContext } from "../../views/token";
 import artistsFunction from "../../utils/artists/artistsFunctions";
 import "./artists.scss";
 import ArtistModel from "../artis-model/artist-model";
-
+import ScrollButton from "../scrollButton/scrollButton";
 
 export default function ArtistsComponent() {
   const [artists, setArtists] = useState(undefined)
+  
 
   useEffect(() => {
     const fetchTopArtist = async () => {
@@ -14,10 +14,13 @@ export default function ArtistsComponent() {
       const topArtist = await artistsFunction.getTopArtists(access_token, 10);
       console.log(topArtist.items);
       setArtists(topArtist.items);
+
     };
     fetchTopArtist();
     
   }, []); 
+
+  
 
   return (
 <section className="artists">
@@ -25,8 +28,11 @@ export default function ArtistsComponent() {
     {artists && artists.length > 0 && (
       
       <div className="card" id="card" >
+        <div className="card_img-container">
         <img src={artists[0].images[0].url} alt="" id="card-img"/>
+        </div>
         <span id="card-span">{artists[0].name}</span>
+        <button className="similar-artist">Artistas parecidos</button>
       </div>
     )}
     <div className="artists-items">
@@ -38,6 +44,7 @@ export default function ArtistsComponent() {
         <p>Cargando artistas...</p>
       )}
     </div>
+    <ScrollButton></ScrollButton>
   </section>
 </section>
 

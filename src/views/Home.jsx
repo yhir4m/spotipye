@@ -14,7 +14,7 @@ export default function Home() {
     };
 
     useEffect(()=>{
-      if(localStorage.getItem("access_token") != "") handleClick();
+      //if(localStorage.getItem("access_token") != "") handleClick();
     },[])
     
       return <button onClick={handleClick}>Login</button>;

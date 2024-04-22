@@ -1,0 +1,77 @@
+.trackCard-container {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  margin: 1rem;
+  padding: 20px;
+  width: 90%;
+  height: 6rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  position: sticky;
+  top: 20px; /* Ajustado para que el elemento se mantenga pegado en la parte superior */
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .tracksCard-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+  }
+
+  .trackCard-body {
+    margin-left: 15px;
+    color: #fff;
+
+    span {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .trackCard-bar {
+      display: flex;
+      align-items: center;
+
+      span {
+        font-size: 12px;
+        color: #b3b3b3;
+        margin: 0 5px;
+      }
+
+      div {
+        flex: 1;
+        background-color: #b3b3b3;
+        height: 4px;
+        margin: 0 10px;
+      }
+    }
+
+    .trackCard-buttons {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+
+      button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        margin-right: 10px;
+
+        svg {
+          fill: #b3b3b3;
+          width: 20px;
+          height: 20px;
+          transition: fill 0.3s ease;
+
+          &:hover {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+}

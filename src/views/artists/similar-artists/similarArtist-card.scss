@@ -1,0 +1,35 @@
+.cardContainer {
+  height: 33%;
+  width: 80vw;
+  display: flex;
+  border: 2px #000 solid;
+  align-items: center;
+  text-align: center;
+  gap: 2%;
+  background: rgb(185,185,185);
+
+  
+    .card-image{
+      padding: 2%; 
+      img{
+        width: 50px;
+      }
+    }
+    .card-body{
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      height: 100%;
+      span{
+        color: #000;
+        font-size: 1rem;
+      }
+      .similar_artist-genres{
+        text-align: start;
+        font-size: .8rem;
+      }
+    }
+  }
+
+  
+  
